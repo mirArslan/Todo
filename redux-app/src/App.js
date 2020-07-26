@@ -11,7 +11,6 @@ function App() {
         <div className="App">
           <h1>TODO Manager</h1>
           <Link to="index">Home</Link>
-          <t></t>
           <Link to="add">Add</Link>
           <br />
           <Route path="/" exact component={TodoList}></Route>

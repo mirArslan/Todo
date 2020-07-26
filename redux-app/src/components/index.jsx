@@ -7,21 +7,33 @@ const TodoList=(props)=>{
             <h3>Todo List</h3>
             <table border="1">
                 <thead>
+                    <tr>
+
                     <th>Pending Work</th>
+                    </tr>
                 </thead>
-                {/* <tbody>
-                    {this.props.todos.map(function(todo,index){
+                <tbody>
+                    {props.todos && props.todos.map(function(todo,index){
                         return (
-                            <tr>
+                            <tr key={`todo_${index}`}>
                                 <td>{todo.work}</td>
                             </tr>
                         )
                     })
                     }
-                </tbody> */}
+                </tbody>
             </table>
         </div>
     );
 }
 
-export default connect()(TodoList);
+const mapStateToProps = (state) => {
+    const stateMap = {};
+    if(state && state.todos){
+        stateMap.todos = state.todos;
+    }else{
+        stateMap.todos = [];
+    }
+    return stateMap;
+}
+export default connect(mapStateToProps)(TodoList);

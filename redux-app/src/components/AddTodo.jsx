@@ -10,13 +10,13 @@ class Add extends React.Component{
     }
     handleInputChange=(e)=>{
         this.setState({
-            [e.target.name]: e.target.name
+            [e.target.name]: e.target.value
         });
     };
     submitForm = (e) => {
         e.preventDefault()
         this.props.dispatch({
-            thpe: 'ADD_TODO',
+            type: 'ADD_TODO',
             todo: this.state
         });
         this.props.history.push('/');
